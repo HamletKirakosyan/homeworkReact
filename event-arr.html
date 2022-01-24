@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event's array</title>
     <style>
-        li{cursor:pointer}
+        #id-one {cursor:pointer;
+            overflow: scroll; 
+            width: 100px;   
+            max-height: 40px;
+        }
     </style>
 </head>
 <body>
     <ul>
-        <li id="id-one">One</li>
+        <li id="id-one">One more time I see you</li>
         <li id="id-two">Two</li>
         <li id="id-three">Three</li>
         <li id="id-four">Four</li>
@@ -23,5 +27,17 @@
     console.log(element.getAttribute('id'))
   })
 })
+
+const array = [];
+function addEvent(eventfunc) {
+    array.push(eventfunc.type);
+    console.log(array);
+};
+
+document.addEventListener('click', (eventfunc) => addEvent(eventfunc));
+document.addEventListener('keypress', (eventfunc) => addEvent(eventfunc));
+window.addEventListener('resize',(eventfunc) => addEvent(eventfunc));
+document.addEventListener('dblclick',(eventfunc) => addEvent(eventfunc));
+document.getElementById("id-one").addEventListener('scroll',(eventfunc) => addEvent(eventfunc));
 </script>
 </html>
